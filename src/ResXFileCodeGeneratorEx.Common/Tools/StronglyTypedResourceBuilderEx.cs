@@ -525,7 +525,8 @@ namespace DMKSoftware.CodeGenerators.Tools
 
 			CodePropertyReferenceExpression assemblyPropertyReference = new CodePropertyReferenceExpression(new CodeTypeOfExpression(new CodeTypeReference(resourceClass.Name)),
 				"Assembly");
-			CodeObjectCreateExpression resourceManagerCreateExpression = new CodeObjectCreateExpression(resourceManagerTypeReference,
+			CodeObjectCreateExpression resourceManagerCreateExpression = new CodeObjectCreateExpression(
+				new CodeTypeReference("Xtensive.Cms.Resource.CustomResourceManager", CodeTypeReferenceOptions.GlobalReference),
 				new CodePrimitiveExpression(fullClassName), assemblyPropertyReference);
 
 			CodeMethodReferenceExpression interlockedExchangeMethodReference = new CodeMethodReferenceExpression(new CodeTypeReferenceExpression(interlockedCodeTypeReference),
